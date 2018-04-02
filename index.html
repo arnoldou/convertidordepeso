@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Convertidor de Peso</title>
+    <style>
+        body {
+            margin-top: 30px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="display-4 text-center mb-3">Convertidor de Peso</h1>                
+                <form>
+                    <div class="form-group">
+                        <input type="number" id="pesoLbs" class="form-control form-control-lg" placeholder="Ingresa las Libras">
+                    </div>                        
+                </form>
+                <div id="respuesta">
+                    <div class="card bg-primary mb-3">
+                        <div class="card-body ">
+                            <h4>Gramos:</h4>
+                            <div id="enGramos">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-success mb-3">
+                        <div class="card-body">
+                            <h4>Kilogramos:</h4>
+                            <div id="enKilogramos">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-danger mb-3">
+                        <div class="card-body">
+                            <h4>Onzas:</h4>
+                            <div id="enOnzas">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>            
+        </div>        
+    </div>
+<script>
+    document.getElementById('respuesta').style.visibility = "hidden";
+    document.getElementById('pesoLbs').addEventListener('input', function(e){
+        let lbs = e.target.value;
+        document.getElementById('respuesta').style.visibility = "visible";
+        document.getElementById('enGramos').innerHTML = lbs/0.0022046;
+        document.getElementById('enKilogramos').innerHTML = lbs/2.2046;
+        document.getElementById('enOnzas').innerHTML = lbs * 16;
+    });
+</script>   
+</body>
+</html>
